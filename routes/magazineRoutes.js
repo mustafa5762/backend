@@ -19,6 +19,7 @@ magazineRoutes.post('/magazines', upload.single("file"), async (req, res) => {
     const magazine = new Magazine({
         title: req.body.title,
         text: req.body.text,
+        category: req.body.category,
         uploaderId: req.body.id,
         file: req.file.path,
     })

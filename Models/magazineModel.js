@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const magazineSchema = new mongoose.Schema({
     title: String,
+    category: String,
     uploaderId: String,
     text: String,
     file: String,
