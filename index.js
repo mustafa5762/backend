@@ -10,6 +10,7 @@ const magazineRoutes = require('./routes/magazineRoutes');
 const Video = require('./Models/videoModel');
 const Magazine = require('./Models/magazineModel');
 const Screenplay = require('./Models/screenplayModel');
+const catRouter = require('./routes/Categories');
 
 
 mongoose.connect('mongodb+srv://Keywords:Hasnotyet123@keywords.vmzso.mongodb.net/myFirstDatab?retryWrites=true&w=majority')
@@ -33,6 +34,8 @@ app.use(videoRouter);
 app.use(screenplayRoutes);
 
 app.use(magazineRoutes);
+
+app.use(catRouter);
 
 
 app.get('/search/:query', async (req,res) => {
