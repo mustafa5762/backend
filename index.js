@@ -11,6 +11,7 @@ const Video = require('./Models/videoModel');
 const Magazine = require('./Models/magazineModel');
 const Screenplay = require('./Models/screenplayModel');
 const catRouter = require('./routes/Categories');
+const routerO = require('./routes/Other');
 
 
 mongoose.connect('mongodb+srv://Keywords:Hasnotyet123@keywords.vmzso.mongodb.net/myFirstDatab?retryWrites=true&w=majority')
@@ -48,6 +49,8 @@ app.get('/search/:query', async (req,res) => {
         screenplays: screenplay
     });
 });
+
+app.use(routerO);
 
 
 
