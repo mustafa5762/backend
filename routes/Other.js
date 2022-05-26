@@ -17,7 +17,7 @@ routerO.post("/others", async (req, res) => {
     const video = new Other({
         title: req.body.title,
         description: req.body.description,
-        video: req.file.path,
+        video: req.body.video,
         uploaderId: req.body.id,
     })
     const save = await video.save();
