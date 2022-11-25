@@ -22,6 +22,9 @@ const storage = new CloudinaryStorage({
 const upload = multer({ storage: storage });
 
 blogRoutes.get('/blogs', BlogController.getblogs);
+blogRoutes.get('/blogslikes/:id', BlogController.getlikes);
+blogRoutes.get('/blogsl/:id/:user', BlogController.likeblog);
+blogRoutes.get('/blogsul/:id/:user', BlogController.unlikeblog);
 blogRoutes.get('/blog/:id', BlogController.getblog);
 blogRoutes.get('/blogsd/:id', BlogController.deleteblog);
 blogRoutes.post('/blogs',  upload.single("image"), BlogController.postblogs);

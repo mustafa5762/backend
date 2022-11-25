@@ -13,6 +13,14 @@ module.exports ={
         res.send("An error Occured");
       }
     },
+    getlikes: async function(req, res){
+      try {
+        const pross = await Blog.findOne({ _id:req.params.id });
+        res.send(pross.likes)
+      } catch (error) {
+        res.send("An error Occured");
+      }
+    },
     getblog: async function(req, res){
       try {
         await Blog.findOneAndUpdate({_id :req.params.id}, {$inc : {views : 1}});
@@ -51,6 +59,22 @@ module.exports ={
         res.send(pro)
       } catch (error) {
         res.send("An error Occured");
+      }
+    },
+    likeblog: async function(req, res){
+      try {
+        await Blog.findByIdAndUpdate(req.params.id, {$push: {likes: req.params.user}})
+        res.send('Like Added');
+      } catch (error) {
+        res.send("error");
+      }
+    },
+    unlikeblog: async function(req, res){
+      try {
+        await Blog.findByIdAndUpdate(req.params.id, {$pull: {likes: req.params.user}})
+        res.send('Like Removed');
+      } catch (error) {
+        res.send("error");
       }
     },
   };
