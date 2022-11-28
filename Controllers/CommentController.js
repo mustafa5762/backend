@@ -15,7 +15,7 @@ module.exports ={
             const comment = new Comment({
                 body: req.body.body,
                 blogID: req.body.blogID,
-                added_by: {username:req.body.username,email:req.body.email,image:req.body.image}
+                added_by: {username:req.body.added_by.username,email:req.body.added_by.email,image:req.body.added_by.image}
             })
             const save = await comment.save()
             res.send(save)
