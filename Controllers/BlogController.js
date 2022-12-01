@@ -63,16 +63,16 @@ module.exports ={
     },
     likeblog: async function(req, res){
       try {
-        const ress = await Blog.findByIdAndUpdate(req.body.id, {$push: {likes: req.body.user}}, {new: true})
-        res.send(ress.likes);
+        await Blog.findByIdAndUpdate(req.body.id, {$push: {likes: req.body.user}}, {new: true})
+        res.send('Success');
       } catch (error) {
         res.send(error);
       }
     },
     unlikeblog: async function(req, res){
       try {
-        const ress = await Blog.findByIdAndUpdate(req.body.id, {$pull: {likes: req.body.user}}, {new: true})
-        res.send(ress.likes);
+        await Blog.findByIdAndUpdate(req.body.id, {$pull: {likes: req.body.user}}, {new: true})
+        res.send('Success');
       } catch (error) {
         res.send("error");
       }
