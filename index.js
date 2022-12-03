@@ -26,4 +26,3 @@ app.use('/api', commentRoutes)
 
 app.listen(process.env.PORT || 5000,() => console.log('Server Started'));
 
-module.exports = app;
