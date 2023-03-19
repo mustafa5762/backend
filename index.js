@@ -10,7 +10,7 @@ const blogRoutes = require('./Routes/BlogRoutes');
 const commentRoutes = require('./Routes/CommentRoute');
 
 
-mongoose.connect('mongodb+srv://ecommerce:Hasnotyet123@cluster0.aegl2.mongodb.net/ecommerceapi?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://Keywords:Hasnotyet123@keywords.vmzso.mongodb.net/allapi?retryWrites=true&w=majority')
 .then(() => console.log('Database Connected'))
 .catch((c) => console.log(c))
 
