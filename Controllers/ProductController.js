@@ -23,22 +23,17 @@ module.exports ={
     },
     postproducts: async function(req, res){
         try {
-
           const newpro = new Product({
             name: req.body.name,
-            price: req.body.price,
-            inStock: req.body.inStock,
-            description: req.body.description,
-            short_description: req.body.short_description,
-            additional_info: req.body.additional_info,
-            category: req.body.category,
-            onHomePage: req.body.onHomePage,
-            colors: [{name: req.body.colors[0].name, class: req.body.colors[0].class, selectedClass: req.body.colors[0].selectedClass}],
-            sizes: [{ name: req.body.sizes[0].name, inStock: req.body.sizes[0].inStock }],
-            tags: req.body.tags,
-            added_by: req.body.added_by,
-            views: 0,
             image: req.file.path,
+            price: req.body.price,
+            short_description: req.body.short_description,
+            description: req.body.description,
+            additional_info: req.body.additional_info,
+            onHomePage: req.body.onHomePage,
+            inStock: req.body.inStock,
+            tags: JSON.parse(req.body.tags),
+            category: req.body.category
           });
           const prods = await newpro.save();
           res.send(prods)
