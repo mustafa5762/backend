@@ -18,6 +18,7 @@ const productSchema = new Schema({
     added_by: String,
     views: Number,
     image: String,
+    images: [String],
 });
 
 const Product = mongoose.model('Product', productSchema);
