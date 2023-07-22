@@ -6,19 +6,16 @@ const productSchema = new Schema({
     price: String,
     inStock: Boolean,
     description: String,
-    short_description: String,
+    features: [String],
     additional_info: String,
     category: String,
     onHomePage: Boolean,
     date_added: { type: Date, default: Date.now },
     reviews: [{ body: String, date: { type: Date, default: Date.now }, number: Number, added_by: String, }],
-    colors: [{name: String, class: String, selectedClass: String}],
+    colors: [{name: String, class: String, selectedClass: String, colorImage: String, colorImage2: String }],
     sizes: [{ name: String, inStock: Boolean }],
     tags: [String],
-    added_by: String,
     views: Number,
-    image: String,
-    images: [String],
 });
 
 const Product = mongoose.model('Product', productSchema);

@@ -12,5 +12,6 @@ productRoutes.get('/products', ProductController.getproducts);
 productRoutes.get('/products/:id', ProductController.getproduct);
 productRoutes.get('/productsd/:id', ProductController.deleteproduct);
 productRoutes.post('/products', ProductController.postproducts);
+productRoutes.post('/productsc', ProductController.addcolor);
 
 module.exports=productRoutes;

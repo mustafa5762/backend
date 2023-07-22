@@ -26,16 +26,15 @@ module.exports ={
         try {
           const newpro = new Product({
             name: req.body.name,
-            image: req.body.image,
-            images: req.body.images,
             price: req.body.price,
-            short_description: req.body.short_description,
-            description: req.body.description,
-            additional_info: req.body.additional_info,
-            onHomePage: req.body.onHomePage,
             inStock: req.body.inStock,
+            description: req.body.description,
+            features: req.body.features,
+            additional_info: req.body.additional_info,
+            category: req.body.category,
+            onHomePage: req.body.onHomePage,
+            sizes: req.body.sizes,
             tags: req.body.tags,
-            category: req.body.category
           });
           const prods = await newpro.save();
           res.send(prods)
@@ -47,6 +46,14 @@ module.exports ={
       try {
         const pro = await Product.findOneAndDelete({ _id:req.params.id });
         res.send(pro)
+      } catch (error) {
+        res.send("An error Occured");
+      }
+    },
+    addcolor: async function(req, res){
+      try {
+        const proc = await Product.findOneAndUpdate({ _id:req.body._id }, { $push: { colors: req.body.color } });
+        res.send(proc)
       } catch (error) {
         res.send("An error Occured");
       }
