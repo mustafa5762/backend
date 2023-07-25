@@ -9,7 +9,6 @@ var bodyParser = require('body-parser');
 const blogRoutes = require('./Routes/BlogRoutes');
 const commentRoutes = require('./Routes/CommentRoute');
 const imageUpload = require('./Routes/ImageUpload');
-const leadRoutes = require('./Routes/LeadRoutes');
 
 
 mongoose.connect('mongodb+srv://Keywords:Hasnotyet123@keywords.vmzso.mongodb.net/allapi?retryWrites=true&w=majority')
@@ -25,7 +24,6 @@ app.use('/api', productRoutes)
 app.use('/api', blogRoutes)
 app.use('/api', commentRoutes)
 app.use('/api', imageUpload)
-app.use('/api', leadRoutes)
 
 
 app.listen(process.env.PORT || 5000,() => console.log('Server Started'));
