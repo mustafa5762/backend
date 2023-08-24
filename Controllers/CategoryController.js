@@ -4,7 +4,7 @@ const Product = require("../Models/ProductModel");
 module.exports ={
     getcategories: async function(req, res){
       try {
-        const category = await Category.findOne({ category_name:{ $regex: req.query.name, $options: "i" } });
+        const category = await Category.findOne({$text: { $search: req.query.name }});
         const products = await Product.find({category: req.query.name })
         res.send({category, products})
       } catch (error) {
